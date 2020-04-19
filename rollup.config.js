@@ -10,6 +10,7 @@ import postcss from 'rollup-plugin-postcss'
 import { string } from 'rollup-plugin-string'
 import { terser } from 'rollup-plugin-terser'
 import pkg from './package.json'
+import postcssChrome81Workaround from './scripts/postcss-chrome81-workaround'
 import postcssOptimizeDefaultTheme from './scripts/postcss-optimize-default-theme'
 
 const plugins = [
@@ -41,6 +42,7 @@ const plugins = [
     },
     plugins: [
       postcssOptimizeDefaultTheme(),
+      postcssChrome81Workaround(),
       postcssUrl({
         filter: '**/assets/**/*.svg',
         encodeType: 'base64',

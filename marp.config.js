@@ -1,8 +1,8 @@
 const path = require('path')
-const engine = path.join(__dirname, './lib/marp.js')
+const { Marp } = require('./lib/marp')
 
 module.exports = {
-  engine,
+  engine: (opts) => new Marp({ ...opts, minifyCSS: false }),
   server: true,
   inputDir: path.join(__dirname, './sandbox'),
 }
